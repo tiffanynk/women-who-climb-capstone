@@ -1,4 +1,4 @@
-export default {
+const theme = {
     palette: {
         primary: {
             light: 'rgba(111, 157, 128, 1)',
@@ -18,6 +18,13 @@ export default {
             root: {
                 margin: 10
             }
+        },
+        MuiCard: {
+            root: {
+                margin: 30
+            }
         }
     }
 }
+
+export default theme;

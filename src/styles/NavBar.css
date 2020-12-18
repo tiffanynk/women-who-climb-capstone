@@ -1,0 +1,22 @@
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: row;
+}
+.home {
+    cursor: pointer;
+}
+
+.logo-text {
+    width: 50%;
+}
