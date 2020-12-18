@@ -32,6 +32,10 @@
         top: 30%;
         transform: translate(-50%, -50%);
     }
+    .logo-container {
+        display: flex;
+        justify-content: center;
+    }
     .button-container {
         display: flex;
         flex-direction: column;
@@ -40,6 +44,10 @@
         bottom: 20%;
         left: 50%;
         transform: translate(-50%);
+    }
+    .landing-container {
+        width: 116%;
+        height: 855px;
     }
 }
 /* change background size

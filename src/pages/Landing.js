@@ -1,5 +1,5 @@
 import React from 'react';
-import './Landing.css';
+import '../styles/Landing.css';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
