@@ -13,6 +13,30 @@ const theme = {
             contrastText: 'rgba(0, 5, 11, 1)'
             },
     },
+    form: {
+        margin: '100px auto 0 auto',
+        textAlign: 'center'
+    },
+    image: {
+        width: '50%'
+    },
+    title: {
+        margin: '10px auto 10px auto'
+    },
+    textField: {
+        margin: '10px auto 10px auto'
+    },
+    button: {
+        marginTop: 20,
+        position: 'relative'
+    },
+    customError: {
+        color: 'red',
+        fontSize: '0.8rem'
+    },
+    progress: {
+        position: 'absolute'
+    },
     overrides: {
         MuiButton: {
             root: {

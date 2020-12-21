@@ -30,7 +30,8 @@ class Post extends Component {
         dayjs.extend(relativeTime)
         const {
             classes, 
-            post: { 
+            post: {
+                postId, 
                 userImage, 
                 body, 
                 createdAt, 
@@ -39,7 +40,7 @@ class Post extends Component {
                 commentCount 
             } } = this.props
         return (
-            <Card className={classes.card}>
+            <Card key={postId} className={classes.card}>
                 <CardMedia 
                     image={userImage}
                     title='Profile Image'
