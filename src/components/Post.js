@@ -14,9 +14,11 @@ const styles = {
     },
     image: {
         minWidth: 100,
+        minHeight: 150,
         marginLeft: 10,
-        backgroundSize: 'contain',
-        objectFit: 'cover'
+        // margin: '10px 10px 10px 10px',
+        // backgroundSize: 'cover',
+        // objectFit: 'scale-down'
     },
     content: {
         padding: 25
