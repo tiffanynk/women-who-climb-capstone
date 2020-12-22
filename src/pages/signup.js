@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { signupUser } from '../redux/actions/userActions';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
@@ -63,21 +64,7 @@ class signup extends Component {
             handle: this.state.handle
         }
 
-        axios.post('/signup', newUserData)
-            .then(result => {
-                console.log(result.data)
-                localStorage.setItem('FBIdToken', `Bearer ${result.data.token}`)
-                this.setState({
-                    loading: false
-                })
-                this.props.history.push('/home')
-            })
-            .catch(error => {
-                this.setState({
-                    errors: error.response.data,
-                    loading: false
-                })
-            })
+        this.props.signupUser(newUserData, this.props.history)
     };
 
     handleChange = (event) => {
@@ -87,8 +74,8 @@ class signup extends Component {
     }
 
     render() {
-        const { classes } = this.props;
-        const { loading, errors } = this.state;
+        const { classes, UI: { loading } } = this.props;
+        const { errors } = this.state;
         return (
             <Grid container className={classes.form}>
                 <Grid item sm/>
@@ -175,6 +162,15 @@ class signup extends Component {
 }
 
 signup.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired,
+    logoutUser: PropTypes.func.isRequired
 }
-export default withStyles(styles)(signup)
+
+const mapStateToProps = (state) => ({
+    user: state.user,
+    UI: state.UI
+})
+
+export default connect(mapStateToProps, { signupUser })(withStyles(styles)(signup))

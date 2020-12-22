@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { loginUser } from '../redux/actions/userActions';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
@@ -44,37 +45,18 @@ class login extends Component {
         this.state = {
             email: '',
             password: '',
-            loading: false,
             errors: {}
         };
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.setState({
-            loading: true
-        });
-
         const userData = {
             email: this.state.email,
             password: this.state.password
         }
-
-        axios.post('/login', userData)
-            .then(result => {
-                console.log(result.data)
-                localStorage.setItem('FBIdToken', `Bearer ${result.data.token}`)
-                this.setState({
-                    loading: false
-                })
-                this.props.history.push('/home')
-            })
-            .catch(error => {
-                this.setState({
-                    errors: error.response.data,
-                    loading: false
-                })
-            })
+        this.props.loginUser(userData, this.props.history)
+        
     };
 
     handleChange = (event) => {
@@ -84,8 +66,8 @@ class login extends Component {
     }
 
     render() {
-        const { classes } = this.props;
-        const { loading, errors } = this.state;
+        const { classes, UI: { loading } } = this.props;
+        const { errors } = this.state;
         return (
             <Grid container className={classes.form}>
                 <Grid item sm/>
@@ -106,7 +88,8 @@ class login extends Component {
                             helperText={errors.email}
                             error={errors.email ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth />
+                            fullWidth 
+                        />
                         <TextField 
                             aria-label='password input'
                             label='Password' 
@@ -118,7 +101,8 @@ class login extends Component {
                             helperText={errors.password}
                             error={errors.password ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth />
+                            fullWidth 
+                        />
                         {errors.status && (
                             <Typography variant='body2' className={classes.customError}>
                                 {errors.status}
@@ -148,6 +132,19 @@ class login extends Component {
 }
 
 login.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    loginUser: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired
 }
-export default withStyles(styles)(login)
+
+const mapStateToProps = (state) => ({
+    user: state.user,
+    UI: state.UI
+})
+
+const mapActionsToProps = {
+    loginUser
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(login))
