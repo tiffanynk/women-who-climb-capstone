@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
+import { Grid } from '@material-ui/core';
 import Post from '../components/Post';
 
 class home extends Component {
@@ -24,7 +24,7 @@ class home extends Component {
         ) : <p>Loading...</p>
         return (
             <div className='container'>
-            <Grid container spacing={10}>
+            <Grid container spacing={6}>
                 <Grid item sm={6} xs={12}>
                     {recentPosts}
                 </Grid>

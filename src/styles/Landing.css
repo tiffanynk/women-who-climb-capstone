@@ -20,36 +20,82 @@
     align-self: flex-start;
     margin-left: 10em;
 }
-/* make this a query on button container - align self to center */
-/* .button-container span {
-    font-size: 12px;
-} */
 
-@media only screen and (max-device-width: 600px) {
-    .logo {
-        position: absolute;
-        left: 50%;
-        top: 30%;
-        transform: translate(-50%, -50%);
-    }
-    .logo-container {
-        display: flex;
-        justify-content: center;
-    }
-    .button-container {
-        display: flex;
-        flex-direction: column;
-        margin-left: 0;
-        position: absolute;
-        bottom: 20%;
-        left: 50%;
-        transform: translate(-50%);
-    }
-    .landing-container {
-        width: 116%;
-        height: 855px;
-    }
+@media only screen
+    and (min-device-width: 375px) 
+    and (max-device-width: 667px) {
+        .logo {
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0;
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .landing-container {
+            width: 100vw;
+            height: 100vh;
+        }
 }
-/* change background size
-change logo position
-change button position */
+
+@media only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (orientation: portrait) {
+        .landing-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        .logo {
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0;
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+}
+
+@media only screen 
+    and (min-device-width: 1024px) 
+    and (max-device-width: 1024px) 
+    and (orientation: portrait) {
+        .landing-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        .logo {
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0;
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+}
