@@ -29,7 +29,7 @@ class home extends Component {
                 <Grid item sm={6} xs={12}>
                     {recentPosts}
                 </Grid>
-                <Grid item sm={6} xs={12}>
+                <Grid item sm={4} xs={12}>
                     <Profile />
                 </Grid>
             </Grid>

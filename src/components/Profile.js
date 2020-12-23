@@ -7,6 +7,8 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { Button, Paper, Typography } from '@material-ui/core';
 import MuiLink from '@material-ui/core/Link';
 import LinkIcon from '@material-ui/icons/Link';
+import EmojiNatureIcon from '@material-ui/icons/EmojiNature';
+import StarIcon from '@material-ui/icons/Star';
 import { CalendarToday, LocationOn} from '@material-ui/icons';
 
 
@@ -68,7 +70,9 @@ class Profile extends Component {
                     handle, 
                     createdAt, 
                     imageUrl, 
-                    bio, 
+                    bio,
+                    pronouns,
+                    climbingStyle, 
                     website, 
                     location
                 }, 
@@ -110,6 +114,20 @@ class Profile extends Component {
                             <Fragment>
                                 <LocationOn color='primary'/>
                                 <span>{location}</span>
+                                <hr/>
+                            </Fragment>
+                        )}
+                        {pronouns && (
+                            <Fragment>
+                                <EmojiNatureIcon color='primary'/>
+                                <span>{pronouns}</span>
+                                <hr/>
+                            </Fragment>
+                        )}
+                        {climbingStyle && (
+                            <Fragment>
+                                <StarIcon color='primary'/>
+                                <span>{climbingStyle}</span>
                                 <hr/>
                             </Fragment>
                         )}
