@@ -1,15 +1,21 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { logoutUser, uploadImage } from '../redux/actions/userActions';
+import EditDetails from './EditDetails';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Button, Paper, Typography } from '@material-ui/core';
 import MuiLink from '@material-ui/core/Link';
 import LinkIcon from '@material-ui/icons/Link';
+import IconButton from '@material-ui/core/IconButton';
+import EditIcon from '@material-ui/icons/Edit';
+import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 import EmojiNatureIcon from '@material-ui/icons/EmojiNature';
 import StarIcon from '@material-ui/icons/Star';
 import { CalendarToday, LocationOn} from '@material-ui/icons';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 const styles = (theme) => ({
@@ -62,6 +68,23 @@ const styles = (theme) => ({
 });
 
 class Profile extends Component {
+
+    handleImageChange = (event) => {
+        const image = event.target.files[0];
+        const formData = new FormData();
+        formData.append('image', image, image.name);
+        this.props.uploadImage(formData);
+    }
+
+    handleEditImage = () => {
+        const fileInput = document.getElementById('imageUpload')
+        fileInput.click();
+    }
+
+    handleLogout = () => {
+        this.props.logoutUser()
+    }
+
     render() {
         const { 
             classes, 
@@ -90,6 +113,24 @@ class Profile extends Component {
                             src={imageUrl} 
                             alt='profile'
                         />
+                        <input 
+                            type='file' 
+                            id='imageUpload' 
+                            hidden='hidden'
+                            onChange={this.handleImageChange}
+                        />
+                        <Tooltip 
+                            title='Edit profile picture' 
+                        >
+                            <IconButton 
+                                onClick={this.handleEditImage} 
+                                className='button'
+                            >
+                                <EditIcon 
+                                    color='secondary' 
+                                />
+                            </IconButton>
+                        </Tooltip>
                     </div>
                     <hr/>
                     <div className='profile-details'>
@@ -147,7 +188,12 @@ class Profile extends Component {
                         <CalendarToday color='primary' />{' '}
                         <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
                     </div>
-
+                    <Tooltip title='Logout' placement='top'>
+                        <IconButton onClick={this.handleLogout}>
+                            <KeyboardReturn color='primary' />
+                        </IconButton>
+                    </Tooltip>
+                    <EditDetails editUserDetails={() => {}}/>
                 </div>
             </Paper>
         ) : (
@@ -187,9 +233,13 @@ const mapStateToProps = (state) => ({
     user: state.user
 });
 
+const mapActionsToProps = { logoutUser, uploadImage }
+
 Profile.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    uploadImage: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Profile))
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Profile))

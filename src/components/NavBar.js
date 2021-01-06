@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {Component, useRef, Fragment} from 'react';
 import {
     AppBar, 
     Toolbar, 
@@ -11,10 +11,15 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 // import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import UserButton from '../util/UserButton';
+import AddIcon from '@material-ui/icons/Add'
+import HomeIcon from '@material-ui/icons/Home'
+import PropTypes from 'prop-types';
 import WhiteKnot from '../assets/small-white-knot.png'
 import '../styles/NavBar.css';
 
-export default function NavBar () {
+class NavBar extends Component {
     // const [anchorEl, setAnchorEl] = React.useState(null);
 
     // const handleClick = (event) => {
@@ -24,6 +29,8 @@ export default function NavBar () {
     // const handleClose = () => {
     //     setAnchorEl(null);
     // };
+    render() {
+        const { authenticated } = this.props
         return (
             <AppBar className="nav-bar">
                 <Toolbar className='nav-container'>
@@ -34,44 +41,92 @@ export default function NavBar () {
                         alt='Figure 8 knot'
                     />
                 </div>
-                <div className='right-side'>
-                    <Button 
-                        aria-label='home button'
-                        color='inherit'
-                        component={Link}
-                        to='/home'
-                    >
-                        Home
-                    </Button>
-                    <IconButton
-                        aria-label='notifcations'
-                        color='inherit'
-                    >
-                        <NotificationsIcon/>
-                    </IconButton>
-                    <IconButton
-                        aria-controls='menu'
-                        aria-haspopup='true'
-                        aria-label='user account'
-                        color='inherit'
-                        // onClick={handleClick}
-                    >
-                        <AccountCircle/>
-                    </IconButton>
-                    {/* <Menu
-                        id='menu'
-                        anchorEl={anchorEl}
-                        keepMounted
-                        open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                    >
-                        <MenuItem onClick={handleClose}>Profile</MenuItem>
-                        <MenuItem onClick={handleClose}>Find a Crag</MenuItem>
-                        <MenuItem onClick={handleClose}>Logout</MenuItem>
-                    </Menu> */}
-                </div>
+                { authenticated ? (
+                    <div className='right-side'>
+                        <UserButton tipTitle='Make a Post!'>
+                            <AddIcon 
+                                color='inherit' 
+                            />
+                        </UserButton>
+                        <Link to='/home'>
+                            <UserButton 
+                                tipTitle='Home'
+                                aria-label='Home Button'
+                            >
+                                <HomeIcon 
+                                    color='inherit'
+                                />
+                            </UserButton>
+                        </Link>
+                        <UserButton
+                            aria-label='notifcations'
+                            tipTitle='Notifications'
+                        >
+                            <NotificationsIcon
+                                color='inherit'
+                            />
+                        </UserButton>
+                        <IconButton
+                            aria-controls='menu'
+                            aria-haspopup='true'
+                            aria-label='user account'
+                            color='inherit'
+                            // onClick={handleClick}
+                        >
+                            <AccountCircle/>
+                        </IconButton>
+                        {/* <Menu
+                            id='menu'
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem onClick={handleClose}>Find a Crag</MenuItem>
+                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                        </Menu> */}
+                    </div>
+                ) : (
+                    <div className='right-side'>
+                        <Button 
+                            aria-label='home button'
+                            color='inherit'
+                            component={Link}
+                            to='/home'
+                        >
+                            Home
+                        </Button>
+                        <Button 
+                            aria-label='login button'
+                            color='inherit'
+                            component={Link}
+                            to='/login'
+                        >
+                            Login
+                        </Button>
+                        <Button 
+                            aria-label='register button'
+                            color='inherit'
+                            component={Link}
+                            to='/register'
+                        >
+                            Home
+                        </Button>
+                    </div>
+
+                ) }
                 </Toolbar>
             </AppBar>
         )
-
+    }
 }
+
+NavBar.propTypes = {
+    authenticated: PropTypes.bool.isRequired
+}
+const mapStateToProps = state => ({
+    authenticated: state.user.authenticated
+})
+
+export default connect(mapStateToProps)(NavBar)

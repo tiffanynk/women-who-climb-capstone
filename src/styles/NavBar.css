@@ -3,6 +3,10 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.nav-container svg {
+    color: #ffffff;
+}
 .button-container {
     display: flex;
     flex-direction: row;
