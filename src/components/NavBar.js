@@ -12,11 +12,11 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 // import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import MakePost from './MakePost';
 import UserButton from '../util/UserButton';
-import AddIcon from '@material-ui/icons/Add'
-import HomeIcon from '@material-ui/icons/Home'
+import HomeIcon from '@material-ui/icons/Home';
 import PropTypes from 'prop-types';
-import WhiteKnot from '../assets/small-white-knot.png'
+import WhiteKnot from '../assets/small-white-knot.png';
 import '../styles/NavBar.css';
 
 class NavBar extends Component {
@@ -43,11 +43,7 @@ class NavBar extends Component {
                 </div>
                 { authenticated ? (
                     <div className='right-side'>
-                        <UserButton tipTitle='Make a Post!'>
-                            <AddIcon 
-                                color='inherit' 
-                            />
-                        </UserButton>
+                        <MakePost />
                         <Link to='/home'>
                             <UserButton 
                                 tipTitle='Home'

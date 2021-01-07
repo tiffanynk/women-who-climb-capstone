@@ -1,4 +1,4 @@
-import { SET_POSTS, LIKE_POST, UNLIKE_POST, LOADING_DATA, DELETE_POST } from '../types';
+import { SET_POSTS, LIKE_POST, UNLIKE_POST, LOADING_DATA, DELETE_POST, MAKE_POST } from '../types';
 
 const initialState = {
     posts: [],
@@ -7,13 +7,14 @@ const initialState = {
 }
 
 export default function(state = initialState, action){
-    switch(action.type){
+    switch (action.type){
         case LOADING_DATA:
             return {
                 ...state,
                 loading: true
             }
         case SET_POSTS:
+            console.log('set posts', action.payload)
             return {
                 ...state,
                 posts: action.payload,
@@ -26,6 +27,7 @@ export default function(state = initialState, action){
                 post => post.postId === action.payload.postId
             );
             state.posts[index] = action.payload;
+            console.log('like payload', action.payload)
             return {
                 ...state
             }
@@ -36,6 +38,14 @@ export default function(state = initialState, action){
             state.posts.splice(index, 1);
             return {
                 ...state
+            }
+        case MAKE_POST:
+            return {
+                ...state,
+                posts: [
+                    action.payload,
+                    ...state.posts
+                ]
             }
         default:
             return state;

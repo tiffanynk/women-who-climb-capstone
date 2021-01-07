@@ -1,4 +1,14 @@
-import { SET_POSTS, LOADING_DATA, LIKE_POST, UNLIKE_POST, DELETE_POST} from '../types';
+import { 
+    SET_POSTS, 
+    LOADING_DATA, 
+    LOADING_UI,
+    LIKE_POST, 
+    UNLIKE_POST, 
+    DELETE_POST, 
+    CLEAR_ERRORS, 
+    SET_ERRORS, 
+    MAKE_POST 
+} from '../types';
 import axios from 'axios';
 
 
@@ -19,6 +29,24 @@ export const getPosts = () => (dispatch) => {
         })
 }
 
+export const makePost = (newPost) => (dispatch) => {
+    dispatch({ type: LOADING_UI })
+    axios.post('/post', newPost)
+        .then(result => {
+            dispatch({
+                type: MAKE_POST,
+                payload: result.data
+            })
+            dispatch({ type: CLEAR_ERRORS })
+        })
+        .catch(error => {
+            dispatch({ 
+                type: SET_ERRORS ,
+                payload: error.response.data
+            })
+        })
+}
+
 export const likePost = (postId) => (dispatch) => {
     axios.get(`/post/${postId}/like`)
         .then(result => {
@@ -33,6 +61,7 @@ export const likePost = (postId) => (dispatch) => {
 export const unlikePost = (postId) => (dispatch) => {
     axios.get(`/post/${postId}/unlike`)
         .then(result => {
+            console.log('unlike payload', result.data)
             dispatch({
                 type: UNLIKE_POST,
                 payload: result.data

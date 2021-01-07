@@ -39,7 +39,10 @@ const styles = {
 
 class Post extends Component {
     likedPost = () => {
-        if(this.props.user.likes && this.props.user.likes.find(like => like.postId === this.props.post.postId))
+        if(this.props.user.likes && this.props.user.likes.find(
+            like => like.postId === this.props.post.postId
+            )
+        )
             return true
         else 
             return false
