@@ -74,7 +74,7 @@ Stay tuned for an updated README on how to use Women Who Climb with a demo video
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#preview">preview</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -135,12 +135,19 @@ This is an example of how to list things you need to use the software and how to
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-
-
+## Preview
+Landing Page<br />
+<a href="https://ibb.co/MnQZKSq"><img src="https://i.ibb.co/XXMj6Lm/landing.png" alt="landing" border="0"></a><br /><br />
+Login Page <br />
+<a href="https://ibb.co/tQj1Ms0"><img src="https://i.ibb.co/2WVp7tz/login.png" alt="login" border="0"></a> <br /><br />
+Home Page <br />
+Screenshot coming soon.<br /><br />
+User Profile <br /><br />
+Screenshot coming soon.<br /><br />
+Make a Post <br />
+Screenshot coming soon.<br /><br />
+See Comments <br />
+Screenshot coming soon.<br /><br />
 
 
 <!-- ROADMAP -->
