@@ -93,9 +93,12 @@ Stay tuned for an updated README on how to use Women Who Climb with a demo video
 ### Built With
 
 * [React](https://reactjs.org/)
+* [Redux](https://react-redux.js.org/)
+* [Redux Thunk](https://www.npmjs.com/package/redux-thunk)
+* [Node.js](https://nodejs.org/en/)
 * [Express.js](https://expressjs.com/)
 * [Google Firebase](https://firebase.google.com/)
-
+* [Material UI](https://material-ui.com/)
 
 
 <!-- GETTING STARTED -->
@@ -136,15 +139,19 @@ This is an example of how to list things you need to use the software and how to
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+
 
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/tiffanynk/womxn-who-climb/issues) for a list of proposed features (and known issues).
+See the [open project board](https://github.com/tiffanynk/womxn-who-climb/projects) for a list of proposed features (and known issues).
 
+Coming Soon:
+* Search for a Crag via Mountain Project's API
+* Follow other climbers
+* Schedule climbs
 
 
 <!-- CONTRIBUTING -->
