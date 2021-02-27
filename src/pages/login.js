@@ -24,7 +24,8 @@ const styles = {
         margin: '10px auto 10px auto'
     },
     textField: {
-        margin: '10px auto 10px auto'
+        // margin: '10px 10px 10px auto'
+        width: 250
     },
     button: {
         marginTop: 20,
@@ -88,8 +89,10 @@ class login extends Component {
                             helperText={errors.email}
                             error={errors.email ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth 
+                            size='normal' 
                         />
+                        <div>
+
                         <TextField 
                             aria-label='password input'
                             label='Password' 
@@ -101,13 +104,14 @@ class login extends Component {
                             helperText={errors.password}
                             error={errors.password ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth 
+                            size='normal' 
                         />
                         {errors.status && (
                             <Typography variant='body2' className={classes.customError}>
                                 {errors.status}
                             </Typography>
                         )}
+                        </div>
                         <Button 
                             aria-label='Login Button'
                             type='submit' 

@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { likePost, unlikePost } from '../redux/actions/dataActions';
+import PostDialog from './PostDialog';
 import DeletePost from './DeletePost';
 import UserButton from '../util/UserButton';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -141,6 +142,12 @@ class Post extends Component {
                         <ChatIcon color='primary'/>
                     </UserButton>
                     <span>{`${commentCount}`} comments</span>
+                    <PostDialog 
+                        postId={postId} 
+                        userHandle={userHandle} 
+                        userImage={userImage}
+                        openDialog={this.props.openDialog}
+                    />
                 </CardContent>
             </Card>
         )
@@ -152,6 +159,7 @@ Post.propTypes = {
     unlikePost: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
     post: PropTypes.object.isRequired,
+    openDialog: PropTypes.bool,
     classes: PropTypes.object.isRequired
 }
 const mapStateToProps = state => ({

@@ -39,11 +39,11 @@ class home extends Component {
 
         return (
             <div className='container'>
-            <Grid container spacing={6}>
+            <Grid container spacing={4}>
                 <Grid item sm={6} xs={12}>
                     {recentPosts}
                 </Grid>
-                <Grid item sm={4} xs={12}>
+                <Grid item sm={4} xs={8}>
                     <Profile />
                 </Grid>
             </Grid>
