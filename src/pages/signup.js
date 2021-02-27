@@ -24,7 +24,7 @@ const styles = {
         margin: '10px auto 10px auto'
     },
     textField: {
-        margin: '10px auto 10px auto'
+        width: 250
     },
     button: {
         marginTop: 20,
@@ -96,7 +96,8 @@ class signup extends Component {
                             helperText={errors.email}
                             error={errors.email ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth />
+                        />
+                        <br/>
                         <TextField 
                             aria-label='password input'
                             label='Password' 
@@ -108,7 +109,8 @@ class signup extends Component {
                             helperText={errors.password}
                             error={errors.password ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth />
+                        />
+                        <br/>
                         <TextField 
                             aria-label='confirm password input'
                             label='Confirm Password' 
@@ -120,7 +122,8 @@ class signup extends Component {
                             helperText={errors.confirmPassword}
                             error={errors.confirmPassword ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth />
+                        />
+                        <br/>
                         <TextField 
                             aria-label='handle input'
                             label='Handle' 
@@ -132,12 +135,14 @@ class signup extends Component {
                             helperText={errors.handle}
                             error={errors.handle ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth />
+                        />
+                        <br/>
                         {errors.status && (
                             <Typography variant='body2' className={classes.customError}>
                                 {errors.status}
                             </Typography>
                         )}
+                        <br/>
                         <Button 
                             aria-label='Login Button'
                             type='submit' 
@@ -165,7 +170,7 @@ signup.propTypes = {
     classes: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired,
-    logoutUser: PropTypes.func.isRequired
+    // logoutUser: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
