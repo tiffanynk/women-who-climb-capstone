@@ -43,6 +43,7 @@ export const getPost = (postId) => (dispatch) => {
         })
         .catch(error => console.log(error))
 }
+
 export const makePost = (newPost) => (dispatch) => {
     dispatch({ type: LOADING_UI })
     axios.post('/post', newPost)
@@ -87,7 +88,10 @@ export const unlikePost = (postId) => (dispatch) => {
 export const deletePost = (postId) => (dispatch) => {
     axios.delete(`/post/${postId}`)
         .then(() => {
-            dispatch({ type: DELETE_POST, payload: postId })
+            dispatch({ 
+                type: DELETE_POST, 
+                payload: postId
+            })
         })
         .catch(error => console.log(error))
 }

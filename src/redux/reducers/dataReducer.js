@@ -36,12 +36,12 @@ export default function(state = initialState, action){
                 ...state
             }
         case DELETE_POST:
-            index = state.posts.findIndex(
+            let postIndex = state.posts.findIndex(
                 post => post.postId === action.payload
             )
-            state.posts.splice(index, 1);
+            state.posts.splice(postIndex, 1)
             return {
-                ...state
+                ...state,
             }
         case MAKE_POST:
             return {
