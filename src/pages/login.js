@@ -10,6 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import blackLogo from '../assets/wwc-black-logo.png';
+import { flexbox } from '@material-ui/system';
 import '../App.css';
 
 const styles = {
@@ -24,7 +25,8 @@ const styles = {
         margin: '10px auto 10px auto'
     },
     textField: {
-        margin: '10px auto 10px auto'
+        // margin: '10px 10px 10px auto'
+        width: 250
     },
     button: {
         marginTop: 20,
@@ -71,7 +73,7 @@ class login extends Component {
         return (
             <Grid container className={classes.form}>
                 <Grid item sm/>
-                <Grid item sm>
+                <Grid item sm display='flex' flexDirection='column'>
                     <img src={blackLogo} aria-label='wwc-logo' className={classes.image}/>
                     <Typography variant='h3' className={classes.title}>
                         Login
@@ -88,8 +90,9 @@ class login extends Component {
                             helperText={errors.email}
                             error={errors.email ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth 
+                            size='normal' 
                         />
+                        <br/>
                         <TextField 
                             aria-label='password input'
                             label='Password' 
@@ -101,13 +104,15 @@ class login extends Component {
                             helperText={errors.password}
                             error={errors.password ? true : false}
                             onChange={this.handleChange} 
-                            fullWidth 
+                            size='normal' 
                         />
+                        <br/>
                         {errors.status && (
                             <Typography variant='body2' className={classes.customError}>
                                 {errors.status}
                             </Typography>
                         )}
+                        <br/>
                         <Button 
                             aria-label='Login Button'
                             type='submit' 

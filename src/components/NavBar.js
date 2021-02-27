@@ -90,6 +90,7 @@ class NavBar extends Component {
                             color='inherit'
                             component={Link}
                             to='/home'
+                            className='home-button'
                         >
                             Home
                         </Button>
@@ -107,7 +108,7 @@ class NavBar extends Component {
                             component={Link}
                             to='/register'
                         >
-                            Home
+                            Register
                         </Button>
                     </div>
 

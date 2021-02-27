@@ -13,7 +13,9 @@ import { makePost } from '../redux/actions/dataActions';
 
 const styles = {
     submitButton: {
-        position: 'relative'
+        position: 'relative',
+        float: 'right',
+        marginTop: 10
     },
     progressSpinner: {
         position: 'absolute'
@@ -21,7 +23,7 @@ const styles = {
     closeButton: {
         position: 'absolute',
         left: '90%',
-        top: '10%'
+        top: '6%'
     }
 }
 

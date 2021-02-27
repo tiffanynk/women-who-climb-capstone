@@ -12,6 +12,7 @@ import Landing from './pages/Landing';
 import Home from './pages/Home';
 import login from './pages/login';
 import Signup from './pages/signup';
+import user from './pages/user';
 import themeObject from './Theme';
 import axios from 'axios';
 
@@ -57,6 +58,10 @@ class App extends Component {
                 <AuthRoute 
                   path='/register' 
                   component={Signup} 
+                />
+                <Route 
+                  exact path='/users/:handle' 
+                  component={user} 
                 />
             </div>
       </MuiThemeProvider>
