@@ -139,17 +139,16 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Preview
-Landing Page + Login<br />
-<a href="https://media.giphy.com/media/T2UFgf0oHX8fnQRtJz/giphy.gif" alt="landing" border="0"></a><br /><br />
+Mobile Landing Page + Login<br />
+<img src="https://media.giphy.com/media/BXS1Fz9DbpzyUpbR1e/giphy.gif">
 Home Page <br />
 Screenshot coming soon.<br /><br />
 User Profile <br /><br />
-Screenshot coming soon.<br /><br />
+<img src="https://i.ibb.co/VqzmJ6Q/Screen-Shot-2021-02-27-at-6-37-37-PM.png" alt="User Profile on Home Page" height="475">
 Make a Post <br />
-Screenshot coming soon.<br /><br />
+<img src="https://i.ibb.co/9NKLHWD/Screen-Shot-2021-02-27-at-6-37-10-PM.png" alt='Make a Post'><br /><br />
 See Comments <br />
 Screenshot coming soon.<br /><br />
-
 
 <!-- ROADMAP -->
 ## Roadmap
