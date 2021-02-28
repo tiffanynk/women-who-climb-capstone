@@ -13,6 +13,9 @@ import {
 } from '../types';
 import axios from 'axios';
 
+export const clearErrors = () => (dispatch) => {
+    dispatch({ type: CLEAR_ERRORS });
+};
 
 export const getPosts = () => (dispatch) => {
     dispatch({ type: LOADING_DATA })
@@ -52,11 +55,11 @@ export const makePost = (newPost) => (dispatch) => {
                 type: MAKE_POST,
                 payload: result.data
             })
-            dispatch({ type: CLEAR_ERRORS })
+            dispatch(clearErrors())
         })
         .catch(error => {
             dispatch({ 
-                type: SET_ERRORS ,
+                type: SET_ERRORS,
                 payload: error.response.data
             })
         })
