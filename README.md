@@ -31,11 +31,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/tiffanynk/womxn-who-climb">
-    <img src="https://i.ibb.co/PrJ8kyD/wwc-logo.png" alt="Logo" width="175" height="175">
+  <a href="https://github.com/tiffanynk/women-who-climb">
+    <img src="https://i.ibb.co/rQCjbV5/wwc-black-logo.png" alt="Logo" width="275" height="275">
   </a>
-
-  <h3 align="center">Womxn Who Climb</h3>
+  <h3 align="center">Women Who Climb</h3>
 
   <p align="justify">
 A simple social media app geared toward all women climbers– trans, nonbinary, women of color, women with disabilities and all other marginalized genders who climb.
@@ -140,10 +139,8 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Preview
-Landing Page<br />
-<a href="https://ibb.co/MnQZKSq"><img src="https://i.ibb.co/XXMj6Lm/landing.png" alt="landing" border="0"></a><br /><br />
-Login Page <br />
-<a href="https://ibb.co/tQj1Ms0"><img src="https://i.ibb.co/2WVp7tz/login.png" alt="login" border="0"></a> <br /><br />
+Landing Page + Login<br />
+<a href="https://media.giphy.com/media/T2UFgf0oHX8fnQRtJz/giphy.gif" alt="landing" border="0"></a><br /><br />
 Home Page <br />
 Screenshot coming soon.<br /><br />
 User Profile <br /><br />
