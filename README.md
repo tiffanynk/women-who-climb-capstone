@@ -37,13 +37,17 @@
 
   <h3 align="center">Womxn Who Climb</h3>
 
-  <p align="center">
+  <p align="justify">
 A simple social media app geared toward all women climbers– trans, nonbinary, women of color, women with disabilities and all other marginalized genders who climb.
 <br />
+<br />
+  
 Connect + Climb.
 <br/>
-Full stack progressive web application (PWA) built with ❤️ in React, Node + Express, and Firebase Firestore.
+<br />
+Full stack progressive web application (PWA) built with React, Node + Express, and Firebase Firestore.
 <br/>
+<br />
 Stay tuned for an updated README on how to use Women Who Climb with a demo video!
     <br />
     <br />
