@@ -140,11 +140,11 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Preview
 Mobile Landing Page + Login<br />
-<img src="https://media.giphy.com/media/BXS1Fz9DbpzyUpbR1e/giphy.gif">
+<img src="https://media.giphy.com/media/BXS1Fz9DbpzyUpbR1e/giphy.gif"><br /><br />
 Home Page <br />
 Screenshot coming soon.<br /><br />
 User Profile <br /><br />
-<img src="https://i.ibb.co/VqzmJ6Q/Screen-Shot-2021-02-27-at-6-37-37-PM.png" alt="User Profile on Home Page" height="475">
+<img src="https://i.ibb.co/VqzmJ6Q/Screen-Shot-2021-02-27-at-6-37-37-PM.png" alt="User Profile on Home Page" height="475"><br /><br />
 Make a Post <br />
 <img src="https://i.ibb.co/9NKLHWD/Screen-Shot-2021-02-27-at-6-37-10-PM.png" alt='Make a Post'><br /><br />
 See Comments <br />
