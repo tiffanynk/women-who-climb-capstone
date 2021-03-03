@@ -6,7 +6,7 @@ const initialState = {
     loading: false
 }
 
-export default function dataReducer(state = initialState, action){
+export default function(state = initialState, action){
     switch (action.type){
         case LOADING_DATA:
             return {
@@ -36,12 +36,12 @@ export default function dataReducer(state = initialState, action){
                 ...state
             }
         case DELETE_POST:
-            let postIndex = state.posts.findIndex(
+            index = state.posts.findIndex(
                 post => post.postId === action.payload
             )
-            state.posts.splice(postIndex, 1)
+            state.posts.splice(index, 1);
             return {
-                ...state,
+                ...state
             }
         case MAKE_POST:
             return {

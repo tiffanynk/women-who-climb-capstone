@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import blackLogo from '../assets/wwc-black-logo.png';
-// import { flexbox } from '@material-ui/system';
+import { flexbox } from '@material-ui/system';
 import '../App.css';
 
 const styles = {
@@ -90,6 +90,7 @@ class login extends Component {
                             helperText={errors.email}
                             error={errors.email ? true : false}
                             onChange={this.handleChange} 
+                            size='normal' 
                         />
                         <br/>
                         <TextField 
@@ -103,6 +104,7 @@ class login extends Component {
                             helperText={errors.password}
                             error={errors.password ? true : false}
                             onChange={this.handleChange} 
+                            size='normal' 
                         />
                         <br/>
                         {errors.status && (
