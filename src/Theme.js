@@ -45,7 +45,6 @@ const theme = {
         },
         MuiCard: {
             root: {
-                // margin: 30,
                 width: '100%'
             }
         }

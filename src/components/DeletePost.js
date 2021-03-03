@@ -24,16 +24,16 @@ class DeletePost extends Component {
     }
 
     handleOpen = () => {
-        this.setState({open: true})
+        this.setState({ open: true })
     }
 
     handleClose = () => {
-        this.setState({open: false})
+        this.setState({ open: false })
     }
 
     deletePost = () => {
         this.props.deletePost(this.props.postId)
-        this.setState({open: false})
+        this.setState({ open: false })
     }
 
     render() {

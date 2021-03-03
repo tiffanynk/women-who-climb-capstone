@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/CloseOutlined';
 import { connect } from 'react-redux';
-import { makePost } from '../redux/actions/dataActions';
+import { makePost, clearErrors } from '../redux/actions/dataActions';
 
 
 const styles = {
@@ -40,7 +40,8 @@ class MakePost extends Component {
     }
 
     handleClose = () => {
-        this.setState({ open: false})
+        this.props.clearErrors()
+        this.setState({ open: false, errors: {}})
     }
 
     handleChange = (event) => {
@@ -49,8 +50,15 @@ class MakePost extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.makePost({ body: this.state.body })
-        this.setState({ open: false })
+        if(this.state.body !== '') {
+            this.props.makePost({ body: this.state.body })
+            this.setState({ open: false })
+        } else {
+            this.setState({ 
+                    open: true,
+                    errors: 'Enter Text'
+            })
+        }
     }
 
     render(){
@@ -90,7 +98,7 @@ class MakePost extends Component {
                                 rows='3'
                                 placeholder='Write a post'
                                 error={errors.body ? true : false}
-                                helperText={errors.body}
+                                helperText='Text required'
                                 className={classes.textField}
                                 onChange={this.handleChange}
                                 fullWidth
@@ -120,7 +128,7 @@ class MakePost extends Component {
 
 MakePost.propTypes = {
     makePost: PropTypes.func.isRequired,
-    // clearErrors: PropTypes.func.isRequired,
+    clearErrors: PropTypes.func.isRequired,
     UI: PropTypes.object.isRequired
 };
 
@@ -130,5 +138,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
     mapStateToProps,
-    { makePost }
+    { makePost, clearErrors }
 )(withStyles(styles)(MakePost));

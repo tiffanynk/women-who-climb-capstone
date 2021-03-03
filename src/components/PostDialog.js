@@ -5,7 +5,7 @@ import UserButton from '../util/UserButton';
 import Comments from './Comments';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
-import { Dialog, DialogContent, DialogTitle } from '@material-ui/core';
+import { Dialog, DialogContent } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import CloseIcon from '@material-ui/icons/CloseOutlined';
 import UnfoldMore from '@material-ui/icons/UnfoldMore';
@@ -70,17 +70,17 @@ class PostDialog extends Component {
     handleClose = () => {
         window.history.pushState(null, null, this.state.oldPath);
         this.setState({ open: false });
-        // this.props.clearErrors();
+        this.props.clearErrors();
     };
 
     render() {
         const {
             classes,
             post: {
-                postId,
+                // postId,
                 body,
                 createdAt,
-                likeCount,
+                // likeCount,
                 commentCount,
                 userImage,
                 userHandle,
@@ -94,7 +94,7 @@ class PostDialog extends Component {
                 <CircularProgress size={200} thickness={2} />
             </div>
         ) : (
-            <Grid container spacing={16}>
+            <Grid container spacing={10}>
             <Grid item sm={5}>
                 <img src={userImage} alt="Profile" className={classes.image} />
             </Grid>
@@ -116,7 +116,7 @@ class PostDialog extends Component {
                 {/* <LikeButton postId={postId} />
                 <span>{likeCount} likes</span> */}
                 <UserButton tip="comments">
-                <ChatIcon color="primary" />
+                    <ChatIcon color="primary" />
                 </UserButton>
                 <span>{commentCount} comments</span>
             </Grid>
@@ -129,7 +129,7 @@ class PostDialog extends Component {
         <Fragment>
             <UserButton
                 onClick={this.handleOpen}
-                tip="Expand post"
+                tipTitle="Expand post"
                 tipClassName={classes.expandButton}
             >
                 <UnfoldMore color="primary" />
@@ -173,6 +173,7 @@ const mapStateToProps = (state) => ({
 
 const mapActionsToProps = {
     getPost,
+    clearErrors
 };
 
 export default connect(
